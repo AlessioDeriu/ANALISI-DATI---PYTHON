@@ -17,14 +17,35 @@ dati = {
 # Creazione DataFrame
 df = pd.DataFrame(dati)
 
-# Posiz. riga "SAINT LUCIA"
-try:
-    idx_saint_lucia = df[df['Paese'] == 'SAINT LUCIA'].index[0]
-    porto_saint_lucia = df.loc[idx_saint_lucia, 'Porti']
-    scali_saint_lucia = df.loc[idx_saint_lucia, 'Scali']
+def trova_info_paese(paese: str, dataframe: pd.DataFrame):
+    
+    #fornisce le informazioni di un paese dal DataFrame
+    
+    try:
+        idx = dataframe[dataframe['Paese'] == paese].index[0]
+        porti = dataframe.loc[idx, 'Porti']
+        scali = dataframe.loc[idx, 'Scali']
+        return{
+            'posizione': idx,
+            'porti': porti,
+            'scali': scali
+            
+        }
+    except IndexError:
+        return None
 
-    print("Posizione di SAINT LUCIA:", idx_saint_lucia)
-    print("Porto corrispondente:", porto_saint_lucia)
-    print("Numero di Scali:", scali_saint_lucia)
-except IndexError:
-    print("SAINT LUCIA non trovato nel DataFrame")
+#ex:
+
+paese_cercato = 'SAINT LUCIA'
+info = trova_info_paese(paese_cercato, df)
+
+if info:
+    print(f"Info su {paese_cercato}:")
+    print(f" Posizione nel DataFrame: {info['posizione']}")
+    print(f" Porti: {info['porti']}")
+    print(f" Numero di scali: {info['scali']}")
+else:
+    print(f"{paese_cercato} non trovato nel DataFrame")
+
+
+
