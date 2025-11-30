@@ -6,14 +6,14 @@ Permette di cercare informazioni specifiche su un paese, come:
 -Numero di scali
 -Cambi equipaggio
 
-In base alla frequenza di cambi equipaggio e operazioni nei porti da parte di un potenziale cliente, lo script può essere utile per stimare la mole di lavoro futura e pianificare un PDA (preventivo di costi)
+In base alla frequenza di cambi equipaggio e operazioni nei porti da parte di un potenziale cliente, lo script può essere utile per stimare la mole di lavoro futura e pianificare un PDA (preventivo di costi) da proporre
 
 
-Assicurati di avere Python 3 e il pacchetto pandas installato
+Ingredients: Python 3 + pacchetto pandas
 
-Modifica lo script per inserire i dati dei paesi e dei porti
+Modificare lo script per inserire i dati dei paesi e dei porti
 
-Cerca le informazioni di un paese specifico cambiando la variabile:
+Cercare le informazioni di un paese specifico cambiando la variabile:
 
 paese_cercato = 'SAINT LUCIA'
 info = trova_info_paese(paese_cercato, df)
